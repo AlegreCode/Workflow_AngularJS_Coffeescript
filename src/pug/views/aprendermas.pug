@@ -1,0 +1,21 @@
+section(class="jumbotron")
+    div(class="container")
+        h1.text-center #[strong Configurar host virtual]
+        p #[strong IMPORTANTE:] este proyecto fue testeado en un host virtual con xampp en un entorno Windows. En esta sección te explicaré como configurarlo, para que puedas usarlo sin complicaciones.
+section.container.aprendermas
+    .row
+        div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12")
+            h3 Configurar Host
+            p El archivo hosts de windows, sirve para asignar nombres de host a direcciones ip. La ubicación del archivo se encuentra en: C:\Windows\System32\drivers\etc\host. Dentro de este directorio vas a encontrar un archivo llamado hosts. Abrí el bloc de notas como #[strong administrador] para que te permita hacer cambios.
+            blockquote.aprendermas__blockquote En caso de que el directorio aparezca vacío, cambiar la opción del combox "documentos de texto (.txt)" por "todos los archivos (*.*)".
+            p El archivo lucirá algo similar a esto:
+            img(src="img/hosts.png", alt="alt")
+            P La parte resaltada es en dónde tienes que definir tu host. 127.0.0.1 es la dirección ip de la máquina local. Luego pones el nombre del host, este puede llamarse como quieras, en mi caso para este proyecto yo lo llamé #[strong angularjscoffeescript.com].
+            h3 Configurar Host Virtual en XAMPP
+            p Para configurar el host en xampp, tenés que editar el archivo #[strong httpd-vhosts.conf]. Este archivo se encuentra en la siguiente ruta: C:\xampp\apache\conf\extra. Al igual que en el caso anterior, verifica que el combox muestre todos los archivos.
+            p Encontrarás algo similar a esto.
+            img(src="img/host_xampp.png", alt="alt")
+            p La parte resaltada muestra lo que tenes que agregar; el #[strong virtualhost] en mi caso es angularjscoffeescript.com en el puerto 80. En #[strong DocumentRoot] y #[strong Directory] va la ruta completa de la carpeta fuente src/ del proyecto, en mi caso es: C:\xampp\htdocs\Proyectos\Workflow_AngularJS_Coffeescript\src. Finalmente en #[strong ServerName] agregas el nombre de tu host, como se muestra en la imagen. La opción ServerAlias no es obligatorio, como podés ver en el ejemplo, la línea está comentada (con # al inicio de la línea). Esto es todo, ahora reinicias tu xampp, y listo.
+            blockquote.aprendermas__blockquote En caso de que tengas algunos problemas con la configuración del host virtual, te dejo un link donde puedes encontrar algunas respuestas. #[a(href="https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode" target="_blank") Aquí]
+
+

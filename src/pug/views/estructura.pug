@@ -1,0 +1,29 @@
+section(class="jumbotron")
+    div(class="container")
+        h1.text-center #[strong Estructura de directorios]
+        p En esta sección explicaré como está formada la estructura de directorios, cómo funciona el compilado y copiado de ficheros, desde el directorio de código fuente hasta el directorio de producción.
+
+section.container
+    .row
+        div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 estructura")
+            h3 Directorio raíz
+            p El directorio raíz está formanda por los dos directorio principales de toda la estructura. Una llamada #[strong dist] y otra llamada #[strong src]. La primera es donde serán copiados todos los ficheros finales del proyecto (css, js, imágenes, etc). Este es el directorio de producción.
+            p El directorio src, es donde vamos a trabajar, aquí es donde tienes que escribir tu código fuente (scss, coffeescript, pug, etc). Ahora vamos a analizar como está formada este directorio y como interactúa con el directorio dist.
+        div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 estructura")
+            h3 Directorio src
+            p Este directorio separa el código fuente por tipo, sus principales carpetas son: coffeescript, scss, pug, js, css, views, img, fonts (fuentes de bootstrap), webfonts (fuentes de fontawesome).
+            blockquote.estructura__blockquote Es importante señalar que las carpetas coffeescript, scss y pug son excluídos para se copiados a la carpeta dist.
+            blockquote.estructura__blockquote El fichero index.html es la entrada a nuestra aplicación. Aquí está el #[strong "ng-view"] para gestionar las vistas; también está el navbar y el footer, que se repiten en todas las vistas.
+            p Veremos que es lo que tiene cada uno de estos directorios.
+        div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 estructura")
+            h3 Directorio pug
+            p Aquí vas a encontrar dos directorios, uno llamado #[strong templates] y otra llamada #[strong views].
+            p #[strong templates:] la finalidad de este directorio es contener todos aquellos fragmentos de código que se pueden llegar a repetir en más de una vista. De esta forma sólo necesitas escribirlo una vez y luego puedes incorporarlo a la vista destino haciendo un "include". Puedes verlo como separar en código en bloques o componentes que irás añadiendo a las vistas. Los ficheros de este directorio no se compilan.
+            p #[strong views:] como su nombre lo indica, aquí van las distintas vistas o páginas que conforman tu aplicación y que se mostrarán en el #[strong "ng-view"] del index. Los ficheros de esta carpeta se compilan a la carpeta /views que se encuentra en la raíz.
+        div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 estructura")
+            h3 Directorio scss
+            p En esta carpeta vas a encontrar la carpeta #[strong /_partials], que es donde va los fragemtos de código de cada uno de tus componentes. Dentro de partials también está los ficheros fuentes de fontawesome en una carpeta separada.
+            p El fichero app.scss en el archivo principal que se compila en el app.min.css de tu aplicación, y contendrá todos los partials que le indiques.
+        div(class="col-xs-12 col-sm-12 col-md-12 col-lg-12 estructura")
+            h3 Directorio coffeescript
+            p La carpeta #[strong modules] como su nombre indica contendrá todos los módulos que son necesarios para el funcionamiento de la aplicación, es decir, los controladore, servicios, clases etc. Estos son importados al archivo app.coffee que es el fichero principal de tu aplicación y se compilará en app.min.js.
